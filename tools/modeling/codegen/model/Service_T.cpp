@@ -74,7 +74,7 @@ OpenDDS::Model::Service< ModelName, InstanceTraits>::publisher( typename Publish
   if( !this->publishers_[ publisher]) {
     this->createPublisher( publisher);
   }
-  return DDS::Publisher::_duplicate(this->publishers_[ publisher]);
+  return this->publishers_[ publisher];
 }
 
 template< typename ModelName, class InstanceTraits>
@@ -85,7 +85,7 @@ OpenDDS::Model::Service< ModelName, InstanceTraits>::subscriber( typename Subscr
   if( !this->subscribers_[ subscriber]) {
     this->createSubscriber( subscriber);
   }
-  return DDS::Subscriber::_duplicate(this->subscribers_[ subscriber]);
+  return this->subscribers_[ subscriber];
 }
 
 template< typename ModelName, class InstanceTraits>
@@ -96,7 +96,7 @@ OpenDDS::Model::Service< ModelName, InstanceTraits>::writer( typename DataWriter
   if( !this->writers_[ writer]) {
     this->createPublication( writer);
   }
-  return DDS::DataWriter::_duplicate(this->writers_[ writer]);
+  return this->writers_[ writer];
 }
 
 template< typename ModelName, class InstanceTraits>
@@ -107,7 +107,7 @@ OpenDDS::Model::Service< ModelName, InstanceTraits>::reader( typename DataReader
   if( !this->readers_[ reader]) {
     this->createSubscription( reader);
   }
-  return DDS::DataReader::_duplicate(this->readers_[ reader]);
+  return this->readers_[ reader];
 }
 
 template< typename ModelName, class InstanceTraits>
